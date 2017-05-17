@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kar:sm {% block title %}{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/foundation.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/style.min.css")}}">
+    {% block stylesheets %} {% endblock %}
+</head>
+
+<body>
+<header id="page_header">
+    <nav class="top-bar">
+        <div class="top-bar-title">
+            <a href="{{ path('index') }}"><img class="logo" src="{{ asset('img/Karism.png') }}" alt='Space'></a>
+        </div>
+        <div class="top-bar-right">
+            {% if app.session.get('user_id') %}
+                <button class="float-right profile-btn" type="button" data-toggle="example-dropdown-1">
+                    <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                    {{ app.session.get('user_name') }}
+                </button>
+                <div class="dropdown-pane bottom" id="example-dropdown-1" style="right: 0" data-dropdown data-hover="true" data-hover-pane="true">
+                    <a href="{{ path('user_profile', {'id': app.session.get('user_id')}) }}">Profil</a><br>
+                    <a href="{{ path('faq') }}">Pages d'aide</a><br>
+                    <a href="{{ path('user_logout') }}">Déconnexion</a>
+                    {% if app.session.get('user_role') == 4 %}
+                        <br><a href="{{ path('admin_index') }}" style="color: #A00;">Administration</a>
+                    {% endif %}
+                </div>
+            {% else %}
+                <ul class="menu">
+                    <li>
+                        <a href="{{ path('user_login') }}" class="button secondary" title="Se connecter">
+                            <i class="fa fa-sign-in"  aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_register') }}" class="button secondary" title="S'inscrire">
+                            <i class="fa fa-user-plus"aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            {% endif %}
+
+            {% block navbar %}{% endblock %}
+        </div>
+    </nav>
+    {% block header %}{% endblock %}
+</header>
+{% block body %}{% endblock %}
+<footer id="page_footer">
+    <div class="row">
+        <div class="small-12 medium-expand columns">
+            <h6>A propos</h6>
+            <p>
+                Vivez l’art différemment.<br>
+                Organisez, participez et découvrez des évènements artistiques chez des particulers près de chez vous
+            </p>
+        </div>
+        <div class="small-12 medium-expand columns">
+            <h6>En savoir plus</h6>
+            <a href="#">A propos</a><br>
+            <a href="{{ path('charte') }}">Charte</a><br>
+            <a href="{{ path('faq') }}">FAQ</a>
+        </div>
+        <div class="small-12 medium-expand columns">
+            <h6>Contact</h6>
+            <a href="tel:0033781027215"><i class="fa fa-phone" aria-hidden="true"></i> 07 81 02 72 15</a><br>
+            <a href="mailto:contact@karism.fr"><i class="fa fa-envelope" aria-hidden="true"></i> contact@karism.fr</a>
+        </div>
+        <div class="small-12 medium-expand columns">
+            <h6>Nous suivre</h6>
+            <div class="center">
+                <a href="https://www.facebook.com/lesexposalamaison/" target="_blank">
+                    <span class="social-btn"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://twitter.com/LesExpos" target="_blank">
+                    <span class="social-btn"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://www.instagram.com/lesexposalamaison/" target="_blank">
+                    <span class="social-btn"><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="center copyright">
+        ©2017 Karism
+    </div>
+</footer>
+
+<script type="text/javascript" src="{{asset("js/vendor/jquery.js")}}"></script>
+<script type="text/javascript" src="{{asset("js/vendor/what-input.js")}}"></script>
+<script type="text/javascript" src="{{asset("js/vendor/foundation.min.js")}}"></script>
+<script type="text/javascript" src="{{asset("js/app.js")}}"></script>
+
+{% if app.session.get('user_id') %}
+{{ include('default/chat.html.twig') }}
+{% endif %}
+
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

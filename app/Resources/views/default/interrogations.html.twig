@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h2 class="text-center">Une interrogation?</h2>
+    <h3 class="text-center">Notre foire aux questions contient certainement la réponse!</h3><br><br>
+
+
+    <ul class="accordion" data-accordion>
+        {% for interrogations in interrogation %}
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title">{{interrogations.titre}}</a>
+                <div class="accordion-content" data-tab-content>
+                <p>{{interrogations.contenu|nl2br }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}
+

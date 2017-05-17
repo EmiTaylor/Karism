@@ -1,0 +1,38 @@
+AppBundle\Entity\Permissions:
+    type: entity
+    table: permissions
+    indexes:
+        role_user:
+            columns:
+                - role_user
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        route:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        action:
+            type: boolean
+            nullable: false
+    manyToOne:
+        roleUser:
+            targetEntity: Roles
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                role_user:
+                    referencedColumnName: role
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <main>
+
+        <div class="row">
+            <div class="small-3 large-3 columns">
+                <a href="#" class="link">Mes expos</a>
+            </div>
+            <div class="small-3 large-2 columns">
+                <a href="#" class="link">Mes Lieux</a>
+            </div>
+            <div class="small-3 large-2 columns">
+                <a href="#" class="link">Ma page</a>
+            </div>
+            <div class="small-3 large-2 columns">
+                <a href="#" class="link">Rechercher</a>
+            </div>
+            <div class="small-3 large-3 columns">
+                <a href="#" class="link">Mon profil</a>
+            </div>
+        </div>
+
+        <ul class="side-nav" role="navigation" title="Link List">
+            <li role="menuitem"><a href="#">Modifier mon profil</a></li>
+            <li role="menuitem"><a href="#">Ma playlist</a></li>
+            <li role="menuitem"><a href="#">Ma wishlist</a></li>
+            <li role="menuitem"><a href="#">Paramètres du compte</a></li>
+        </ul>
+        <form>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Photo
+                        <input type="text" placeholder="large-4.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Nom
+                        <input type="text" placeholder="large-4.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Prenom
+                        <input type="text" placeholder="large-4.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Lieu de  naissance
+                        <input type="text" placeholder="large-4.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Email
+                        <input type="text" placeholder="large-4.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-2 columns">
+                    <label>Select Box
+                        <select>
+                            <option value="France">France +33</option>
+                            <option value="England">England +44</option>
+                            <option value="Deutch">Deutch +77</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="large-3 columns">
+                    <label>Téléphone mobile
+                        <input type="text" placeholder="large-4.columns" />
+                    </label>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Adresse
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Complément d'adresse
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Code Postal et ville
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Pays
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>A propos de moi
+                        <textarea placeholder="small-5.columns"></textarea>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Instagram
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Facebook
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-5 columns">
+                    <label>Site Web
+                        <input type="text" placeholder="large-5.columns" />
+                    </label>
+                </div>
+            </div>
+
+
+
+            {{user.email}}
+            {{user.role.name}}
+
+    </main>
+{% endblock %}

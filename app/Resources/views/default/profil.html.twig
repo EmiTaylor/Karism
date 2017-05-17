@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <div id="page">
+            <main>
+                <div class="Name">Bonjour {{user.username}}</div>
+                <div class="row">
+                    <div class="small-4 large-2 columns">
+                        <div id="Profilpicture">
+                            <img src='{{ asset(user.profilpicture) }}'>
+                        </div>
+                    </div>
+
+                    <div class="large-6 columns">
+                        <div class="container" alt="Infos">
+                            <p>{{user.bio}}</p>
+                            <p>{{user.city}}</p>
+                           
+                            <p>{{user.nbrExpo}}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div id="Galery">
+                <img src='{{ asset(user.galery) }}'>
+            </div>
+    </div>
+{% endblock %}

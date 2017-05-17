@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Charte{% endblock %}
+
+{% block header %}
+    <div class="header-static">
+        <img src="{{ asset('img/charte/AuroreMarette-Paris-LesExposALaMaison12.jpg') }}" alt="expo">
+        <h1>La charte</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h2>Karism est un projet qui repose sur des valeurs fortes</h2><br><br>
+    {% for charte in chartes %}
+        <article class="callout large secondary">
+            <h3>{{charte.titre}}</h3><br>
+            <p>{{charte.contenu|nl2br }}</p>
+        </article>
+    {% endfor %}
+    <br><br>
+</main>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "AdminBundle::base.html.twig" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">
+        <a href="{{ path('admin_index') }}"><strong>Dashboard</strong></a>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper wrapper-content">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content text-center p-md">
+                <h2>Bienvenue <span class="text-navy">{{ app.session.get('user_name') }}</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend sagittis volutpat.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endblock %}

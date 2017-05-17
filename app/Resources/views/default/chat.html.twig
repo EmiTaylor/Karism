@@ -1,0 +1,80 @@
+<button id="chat-toggle-btn"><i class="fa fa-comments" aria-hidden="true"></i></button>
+<div id="chatbox">
+    <header>Chatbox</header>
+    <ul id="chat-msg-list"></ul>
+    <div class="input-group chat-msg-actions">
+        <input id="chat-msg-input" class="input-group-field" type="text">
+        <div class="input-group-button">
+            <button type="button" class="button" id="chat-msg-submit">Envoyer</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function getMessages() {
+        $.ajax({
+            type:"GET",
+            url: "{{ path('chat_list_msg') }}",
+            dataType:"json",
+            success: function(msgs) {
+                if(msgs){
+                    var result = "";
+                    for (var i = 0; i < msgs.length; i++) {
+                        var name = msgs[i].author.username;
+                        //var picture = msgs[i].author.profilPicture;
+                        var text = msgs[i].text;
+                        var time = msgs[i].time;
+                        result += '<li>';
+                        result += '<div class="chat-msg-head"><strong>' + name + '</strong> <em>' + time + '</em></div>';
+                        result += '<div class="chat-msg-content">' + text +'</div>';
+                        result += '</li>';
+                    }
+                    if(!result) result = "Aucun message";
+                    $("#chat-msg-list").html(result);
+                    scrollChat();
+                }
+            },
+            error: function() {
+                alert("error");
+            }
+        });
+    }
+
+    function sendMessage() {
+        $.ajax({
+            type:"POST",
+            url: "{{ path('chat_send_msg') }}",
+            dataType:"json",
+            data: {'id': {{  app.session.get('user_id') }}, 'message': $("#chat-msg-input").val() },
+            success: function(msg) {
+                //alert(msg.message);
+                getMessages();
+                $("#chat-msg-input").val("");
+            }
+        });
+    }
+
+    function scrollChat() {
+        var $chatMsgList = $("#chat-msg-list");
+        $chatMsgList.animate({ scrollTop: $chatMsgList.prop("scrollHeight")}, 1000);
+    }
+
+    $(document).ready(function() {
+        getMessages();
+
+        $("#chat-msg-input").keyup(function(e) {
+            if(e.keyCode  === 13) {
+                sendMessage();
+            }
+        });
+
+        $("#chat-msg-submit").click(function() {
+            sendMessage();
+        });
+
+        $("#chat-toggle-btn").click(function() {
+            $("#chatbox").fadeToggle();
+            scrollChat();
+        });
+    });
+</script>

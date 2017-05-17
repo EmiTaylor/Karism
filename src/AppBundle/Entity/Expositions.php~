@@ -1,0 +1,89 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Expositions
+ *
+ * @ORM\Table(name="expositions")
+ * @ORM\Entity
+ */
+class Expositions
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="placehote", type="integer", nullable=false)
+     */
+    private $placehote;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="artiste", type="integer", nullable=false)
+     */
+    private $artiste;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="listeinvite", type="integer", nullable=false)
+     */
+    private $listeinvite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="artistviewed", type="boolean", nullable=false)
+     */
+    private $artistviewed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hoteviewed", type="boolean", nullable=false)
+     */
+    private $hoteviewed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="checklistehote", type="boolean", nullable=false)
+     */
+    private $checklistehote;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="checklisteartist", type="boolean", nullable=false)
+     */
+    private $checklisteartist;
+
+
+}
+

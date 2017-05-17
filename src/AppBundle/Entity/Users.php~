@@ -1,0 +1,141 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Users
+ *
+ * @ORM\Table(name="users", indexes={@ORM\Index(name="role", columns={"role"}), @ORM\Index(name="city", columns={"city"}), @ORM\Index(name="galery", columns={"galery"})})
+ * @ORM\Entity
+ */
+class Users
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255, nullable=false)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profilPicture", type="string", length=255, nullable=true)
+     */
+    private $profilpicture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+     */
+    private $lastname;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthday", type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="phone", type="integer", nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bio", type="text", length=65535, nullable=true)
+     */
+    private $bio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adress", type="string", length=255, nullable=false)
+     */
+    private $adress;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="city", type="integer", nullable=false)
+     */
+    private $city;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="connected", type="boolean", nullable=true)
+     */
+    private $connected;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lastconnect", type="date", nullable=true)
+     */
+    private $lastconnect;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrExpo", type="integer", nullable=true)
+     */
+    private $nbrexpo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="galery", type="integer", nullable=false)
+     */
+    private $galery;
+
+    /**
+     * @var \AppBundle\Entity\Roles
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Roles")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="role", referencedColumnName="id")
+     * })
+     */
+    private $role;
+
+
+}
+

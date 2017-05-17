@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<main>
+    <div class="callout secondary center-box">
+            <h2>Connexion</h2>
+            {{ form_errors(form) }}
+            {{ form_start(form) }}
+
+            <div class="input-group">
+                <span class="input-group-label"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                {{ form_widget(form.email, { 'attr': {'placeholder': 'vous@exemple.com', 'class' : 'input-group-field'}}) }}
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-label"><i class="fa fa-key" aria-hidden="true"></i></span>
+                {{ form_widget(form.plainPassword, { 'attr': {'placeholder': 'Mot de passe', 'class' : 'input-group-field'}}) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(form.connexion, { 'attr': {'class': 'button'}}) }}
+            </div>
+            {{ form_end(form) }}
+    </div>
+    <div class="text-center">
+        <br>Pas encore insctrit ? <a href="{{ path('user_register') }}">S'inscrire</a>
+    </div>
+</main>
+{% endblock %}

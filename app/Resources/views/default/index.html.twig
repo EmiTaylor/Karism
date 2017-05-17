@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% block navbar %}
+
+{% endblock %}
+
+{% block header %}
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+        <ul class="orbit-container">
+            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+            <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+            {% set imageCount = 0 %}
+            {% for item in carousel %}
+                {% if imageCount == 0 %}
+                    <li class="orbit-slide is-active">
+                {% else %}
+                    <li class="orbit-slide">
+                {% endif %}
+                    <img src="{{ asset(item.image)}}" alt='Space'>
+                    <figcaption class="orbit-caption">Description</figcaption>
+                </li>
+            {% endfor %}
+        </ul>
+        <nav class="orbit-bullets">
+            {% set imageCount = 0 %}
+            {% for item in carousel %}
+                {% if imageCount == 0 %}
+                    <button class="is-active" data-slide="0">
+                        <span class="show-for-sr">Slide {{ imageCount }}</span>
+                        <span class="show-for-sr">Current Slide</span>
+                    </button>
+                {% else %}
+                    <button data-slide="{{ imageCount }}"><span class="show-for-sr">Slide {{ imageCount }}</span></button>
+                {% endif %}
+                {% set imageCount = imageCount+1 %}
+            {% endfor %}
+        </nav>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="row timeline">
+            <div class="small-12 medium-expand columns">
+                <h5>Hote</h5>
+                <h2>Recherchez des<br> Artistes</h2>
+                <div class="callout secondary">
+                    <h5>This is a secondary callout</h5>
+                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                    <a href="#">It's dangerous to go alone, take this.</a>
+                </div>
+            </div>
+            <div class="hide-for-small-only medium-1 columns">
+                <div class="trait"></div>
+            </div>
+            <div class="small-12 hide-for-medium columns">
+                <hr>
+            </div>
+            <div class="small-12 medium-expand columns">
+                <h5>Artiste</h5>
+                <h2>Rechercher des<br> Lieux d'exposition</h2>
+                <div class="callout secondary">
+                    <h5>This is a secondary callout</h5>
+                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                    <a href="#">It's dangerous to go alone, take this.</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="video">
+        <iframe width="80%" height="400" src="https://www.youtube.com/embed/GAQ8PePmN6w" frameborder="0" allowfullscreen></iframe>
+    </section>
+    <section class="cards">
+        <h3 class="center">Les expos selon nous</h3><br>
+        <div class="row">
+            <div class="small-12 medium-expand columns">
+                <div class="card">
+                    <img src="{{ asset('img/landing/Karism-Transformer-votre-appart.jpg')}}">
+                    <div class="card-section">
+                        <h5>Transformez votre salon en galerie éphémère</h5>
+                        <p>Ni clou, ni vis, les artistes scénographient leur expo sans toucher à vos murs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="small-12 medium-expand columns">
+                <div class="card">
+                    <img src="{{ asset('img/landing/Karism-Rencontre.jpg')}}">
+                    <div class="card-section">
+                        <h5>Faites des rencontres</h5>
+                        <p>Les expos à la maison, c’est le moment idéal pour faire des rencontres et parler de vos
+                            passions..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="small-12 medium-expand columns">
+                <div class="card">
+                    <img src="{{ asset('img/landing/Karism-Moment-hors-du-temps.jpg') }}">
+                    <div class="card-section">
+                        <h5>Vivez un moment hors du temps</h5>
+                        <p>Pas besoin d’avion pour voyager, laissez vous surprendre à deux pas de chez vous.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

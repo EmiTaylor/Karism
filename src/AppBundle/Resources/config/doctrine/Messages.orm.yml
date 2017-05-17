@@ -1,0 +1,53 @@
+AppBundle\Entity\Messages:
+    type: entity
+    table: messages
+    indexes:
+        expositions:
+            columns:
+                - expositions
+        author:
+            columns:
+                - author
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        texte:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        time:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        expositions:
+            targetEntity: Expositions
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                expositions:
+                    referencedColumnName: id
+            orphanRemoval: false
+        author:
+            targetEntity: Users
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                author:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
