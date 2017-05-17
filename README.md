@@ -9,14 +9,17 @@
 * FAQ : `/faq`
 * Admin : `/admin`
 
+
 ## Technologies
 * PHP 7.0
 * Symfony 3
 * SASS
 * Foundation 6
 
+
 ## Infos
 L'inscription utilisateur est basée sur ce tuto : http://symfony.com/doc/current/doctrine/registration_form.html  
+
 
 ## Fonctionnel
 * Landing Page
@@ -29,15 +32,6 @@ L'inscription utilisateur est basée sur ce tuto : http://symfony.com/doc/curren
 * FAQ
 * Chat
 
-## A faire
-* Admin
-* Expositions
-* Profil utilisateur
-    * Affichage
-    * Edition
-* A propos
-* Catégories FAQ
-* ...
 
 ## Auteur
 * Emilie Letailleur <letailleur.emilie@gmail.com>  
@@ -46,6 +40,6 @@ L'inscription utilisateur est basée sur ce tuto : http://symfony.com/doc/curren
 
 
 
-<img src="img/charte.png?raw=true" />
+<img src="web/img/charte.png?raw=true" />
   
 
