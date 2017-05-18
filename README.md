@@ -40,7 +40,7 @@ L'inscription utilisateur est basée sur ce tuto : http://symfony.com/doc/curren
 
 
 
-<img src="web/img/charte.png?raw=true" />
+<img src="web/img/charte.png?raw=true" /><br>
 
 <img src="web/img/admin.png?raw=true" />
   
